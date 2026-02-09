@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barang Titipan & Hilang - SMAN 1 Magetan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+</head>
+<body>
+    <!-- Header dan Navigasi -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div>
+                    <h1>SMA NEGERI 1 MAGETAN</h1>
+                    <p class="subtitle">Sistem Informasi Barang Titipan & Barang Hilang</p>
+                </div>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active" data-section="home"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="#" data-section="titipan"><i class="fas fa-box"></i> Barang Titipan</a></li>
+                    <li><a href="#" data-section="hilang"><i class="fas fa-search"></i> Barang Hilang</a></li>
+                    <li><a href="#" data-section="laporan"><i class="fas fa-plus-circle"></i> Lapor Barang</a></li>
+                    <li><a href="#" data-section="info"><i class="fas fa-info-circle"></i> Informasi</a></li>
+                </ul>
+            </nav>
+            
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="container main-container">
+        <!-- Section Beranda -->
+        <section id="home-section" class="content-section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Selamat Datang di Sistem Informasi Barang SMAN 1 Magetan</h2>
+                    <p>Temukan barang yang hilang atau titipkan barang Anda dengan aman melalui sistem kami.</p>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-box-open"></i>
+                            <div>
+                                <h3 id="count-titipan">0</h3>
+                                <p>Barang Titipan</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-search"></i>
+                            <div>
+                                <h3 id="count-hilang">0</h3>
+                                <p>Barang Hilang</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3 id="count-ditemukan">0</h3>
+                                <p>Barang Ditemukan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sistem Barang">
+                </div>
+            </div>
+            
+            <div class="features">
+                <h2>Layanan Kami</h2>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3>Barang Titipan</h3>
+                        <p>Titipkan barang Anda dengan aman dan terdaftar resmi di sistem sekolah.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Cari Barang Hilang</h3>
+                        <p>Temukan barang yang hilang dengan mudah melalui pencarian di sistem.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Notifikasi</h3>
+                        <p>Dapatkan pemberitahuan saat barang titipan atau hilang ditemukan.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Laporan Terkini</h3>
+                        <p>Pantau laporan terkini barang titipan dan barang hilang di sekolah.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <h2>Aksi Cepat</h2>
+                <div class="action-buttons">
+                    <button class="btn-action" data-section="laporan">
+                        <i class="fas fa-plus-circle"></i> Lapor Barang Hilang
+                    </button>
+                    <button class="btn-action" data-section="titipan">
+                        <i class="fas fa-box"></i> Lihat Barang Titipan
+                    </button>
+                    <button class="btn-action" data-section="laporan">
+                        <i class="fas fa-hand-holding"></i> Titip Barang
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Barang Titipan -->
+        <section id="titipan-section" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-box"></i> Daftar Barang Titipan</h2>
+                <p>Barang-barang yang dititipkan di sekolah dan masih menunggu pemiliknya</p>
+            </div>
+            
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-titipan" placeholder="Cari barang titipan...">
+                </div>
+                <div class="filter-options">
+                    <select id="filter-status-titipan">
+                        <option value="semua">Semua Status</option>
+                        <option value="dititipkan">Masih Dititipkan</option>
+                        <option value="diambil">Sudah Diambil</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Pemilik</th>
+                            <th>Kelas</th>
+                            <th>Tanggal Titip</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="titipan-table-body">
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="empty-state" id="empty-titipan">
+                <i class="fas fa-box-open"></i>
+                <h3>Tidak Ada Barang Titipan</h3>
+                <p>Belum ada barang yang dititipkan di sistem.</p>
+            </div>
+        </section>
+
+        <!-- Section Barang Hilang -->
+        <section id="hilang-section" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-search"></i> Daftar Barang Hilang</h2>
+                <p>Barang-barang yang dilaporkan hilang di lingkungan sekolah</p>
+            </div>
+            
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-hilang" placeholder="Cari barang hilang...">
+                </div>
+                <div class="filter-options">
+                    <select id="filter-status-hilang">
+                        <option value="semua">Semua Status</option>
+                        <option value="hilang">Masih Hilang</option>
+                        <option value="ditemukan">Sudah Ditemukan</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="items-grid" id="hilang-items-container">
+                <!-- Kartu barang hilang akan diisi oleh JavaScript -->
+            </div>
+            
+            <div class="empty-state" id="empty-hilang">
+                <i class="fas fa-search"></i>
+                <h3>Tidak Ada Barang Hilang</h3>
+                <p>Belum ada barang yang dilaporkan hilang.</p>
+            </div>
+        </section>
+
+        <!-- Section Lapor Barang -->
+        <section id="laporan-section" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-plus-circle"></i> Lapor Barang</h2>
+                <p>Laporkan barang hilang atau titipkan barang Anda di sini</p>
+            </div>
+            
+            <div class="form-container">
+                <div class="form-tabs">
+                    <button class="form-tab active" data-form-type="hilang">Lapor Barang Hilang</button>
+                    <button class="form-tab" data-form-type="titip">Titip Barang</button>
+                </div>
+                
+                <form id="laporan-form">
+                    <div class="form-group">
+                        <label for="nama-barang"><i class="fas fa-cube"></i> Nama Barang</label>
+                        <input type="text" id="nama-barang" placeholder="Contoh: Dompet kulit coklat, Buku matematika kelas X" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="kategori"><i class="fas fa-tag"></i> Kategori Barang</label>
+                        <select id="kategori" required>
+                            <option value="">Pilih Kategori</option>
+                            <option value="elektronik">Elektronik</option>
+                            <option value="alat-tulis">Alat Tulis</option>
+                            <option value="pakaian">Pakaian</option>
+                            <option value="tas">Tas</option>
+                            <option value="dompet">Dompet & Uang</option>
+                            <option value="buku">Buku</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nama-pemilik"><i class="fas fa-user"></i> Nama Pemilik</label>
+                            <input type="text" id="nama-pemilik" placeholder="Nama lengkap" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="kelas"><i class="fas fa-graduation-cap"></i> Kelas</label>
+                            <input type="text" id="kelas" placeholder="Contoh: X IPA 1, XII IPS 3" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deskripsi"><i class="fas fa-align-left"></i> Deskripsi Barang</label>
+                        <textarea id="deskripsi" rows="4" placeholder="Jelaskan ciri-ciri barang, warna, merek, atau tanda pengenal khusus..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lokasi"><i class="fas fa-map-marker-alt"></i> Lokasi</label>
+                        <input type="text" id="lokasi" placeholder="Contoh: Lab Komputer, Lapangan Basket, Kantin" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tanggal"><i class="fas fa-calendar"></i> Tanggal</label>
+                            <input type="date" id="tanggal" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="waktu"><i class="fas fa-clock"></i> Waktu</label>
+                            <input type="time" id="waktu" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gambar"><i class="fas fa-image"></i> Foto Barang (Opsional)</label>
+                        <div class="file-upload">
+                            <input type="file" id="gambar" accept="image/*">
+                            <label for="gambar" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i> Pilih File
+                            </label>
+                            <span id="file-name">Belum ada file dipilih</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Kirim Laporan
+                        </button>
+                        <button type="reset" class="btn-reset">
+                            <i class="fas fa-redo"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="form-info">
+                    <h3><i class="fas fa-info-circle"></i> Informasi Penting</h3>
+                    <ul>
+                        <li>Pastikan data yang diisi sesuai dengan informasi barang yang sebenarnya.</li>
+                        <li>Barang yang sudah ditemukan akan diupdate statusnya oleh admin.</li>
+                        <li>Untuk pengambilan barang titipan, hubungi guru piket dengan membawa kartu pelajar.</li>
+                        <li>Barang yang tidak diambil dalam waktu 30 hari akan menjadi hak sekolah.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Informasi -->
+        <section id="info-section" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> Informasi Sistem</h2>
+                <p>Petunjuk penggunaan dan informasi penting tentang sistem ini</p>
+            </div>
+            
+            <div class="info-content">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Cara Melapor Barang Hilang</h3>
+                    <ol>
+                        <li>Klik menu "Lapor Barang" di navigasi</li>
+                        <li>Isi formulir dengan data yang lengkap dan benar</li>
+                        <li>Tekan tombol "Kirim Laporan"</li>
+                        <li>Catat nomor laporan yang diberikan untuk pengecekan status</li>
+                        <li>Pantau secara berkala status barang Anda</li>
+                    </ol>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-hand-holding"></i>
+                    </div>
+                    <h3>Cara Menitipkan Barang</h3>
+                    <ol>
+                        <li>Klik menu "Lapor Barang" di navigasi</li>
+                        <li>Pilih tab "Titip Barang"</li>
+                        <li>Isi formulir dengan data barang yang dititipkan</li>
+                        <li>Serahkan barang kepada guru piket</li>
+                        <li>Simpan bukti titip yang diberikan</li>
+                    </ol>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Lokasi Penyimpanan Barang</h3>
+                    <p>Barang titipan dan barang temuan disimpan di:</p>
+                    <p><strong>Ruang Tata Usaha</strong></p>
+                    <p>Gedung A Lantai 1, SMA Negeri 1 Magetan</p>
+                    <p>Jam Pelayanan: Senin - Jumat, 07.00 - 15.00 WIB</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Kontak dan Bantuan</h3>
+                    <p>Untuk informasi lebih lanjut, hubungi:</p>
+                    <ul>
+                        <li><strong>Guru Piket:</strong> 0812-3456-7890</li>
+                        <li><strong>Tata Usaha:</strong> (0351) 123456</li>
+                        <li><strong>Email:</strong> barang@sman1magetan.sch.id</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div>
+                    <h3>SMAN 1 Magetan</h3>
+                    <p>Sistem Informasi Barang Titipan & Hilang</p>
+                </div>
+            </div>
+            
+            <div class="footer-info">
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Pahlawan No. 123, Magetan, Jawa Timur</p>
+                <p><i class="fas fa-phone"></i> (0351) 123456 | <i class="fas fa-envelope"></i> info@sman1magetan.sch.id</p>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2023 SMA Negeri 1 Magetan. Semua Hak Dilindungi.</p>
+                <p class="developer-info">Dikembangkan oleh Tim IT SMAN 1 Magetan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Detail Barang -->
+    <div class="modal" id="item-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Detail Barang</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Detail barang akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifikasi -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle" id="notification-icon"></i>
+            <span id="notification-text">Laporan berhasil dikirim!</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
